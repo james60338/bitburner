@@ -2,6 +2,7 @@ const files = [
     "sconfig.txt",
     "start.ns",
     "hackThePlanet.ns",
+    "innocuous.ns",
     "nodes.ns",
     "contractor.ns",
     "singularityfunctions.ns",
@@ -17,6 +18,6 @@ const files = [
 
 export async function main(ns) {
     for (let file of files) {
-        await ns.wget('https://raw.githubusercontent.com/cjamico/bitburner/master/' + file, file);
+        await ns.wget('https://raw.githubusercontent.com/james60338/bitburner/master/' + file, file);
     }
 }
