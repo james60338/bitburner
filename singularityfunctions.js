@@ -1,4 +1,4 @@
-import { city_resources } from "/helpers/cityinfo.ns";
+import { city_resources } from "/helpers/cityinfo.js";
 
 /* Main execution function */
 export async function main(ns) {
