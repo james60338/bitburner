@@ -1,5 +1,5 @@
 // Set these variables
-let script = 'innocuous.ns';
+let script = 'innocuous.js';
 let home = 'home';
 
 export async function main(ns) {
