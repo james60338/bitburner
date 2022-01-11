@@ -1,7 +1,7 @@
 import {
     cmd,
     getServers
-} from "/helpers/helper.ns";
+} from "/helpers/helper.js";
 
 
 let facServers = {
