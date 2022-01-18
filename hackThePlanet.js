@@ -5,7 +5,7 @@ let home = 'home';
 export async function main(ns) {
     let doKillAll = ns.args[0] === 'false' ? false : true;
     var places = scanMore("", "home", ns);
-    //pprint(places, ns);
+    Array.from(places).forEach(element=>ns.tprint(element));
     await hackItAll(places, ns, doKillAll);
 }
 
@@ -22,12 +22,6 @@ function scanMore(prev, current, ns) {
         }
     }
     return all;
-}
-
-function pprint(arr, ns) {
-    for (var h = 0; h < arr.length; h++) {
-        ns.tprint(arr[h]);
-    }
 }
 
 async function hackItAll(hosts, ns, doKill) {
