@@ -1,6 +1,6 @@
 import { city_resources } from "/helpers/cityinfo.js";
 
-/* Main execution function */
+/** @param {NS} ns **/
 export async function main(ns) {
     ns.tprint("___ Start build up ___");
 
@@ -17,7 +17,7 @@ export async function main(ns) {
     if (v.user_prompts.fine_tuning.do_program_buying || v.user_prompts.yes_to_all || pbp) {
         const programs = ns.read(v.input_file_locations.programs).split('\n');
         ns.tprint("Purchasing in progress...");
-        if (!ns.getCharacterInformation().tor) {
+        if (!ns.getPlayer().tor) {
             if (ns.purchaseTor()) {
                 ns.tprint(" Tor router was purchased.");
             } else {
@@ -44,7 +44,7 @@ export async function main(ns) {
             ns.travelToCity("Volhaven");
             city_info = city_resources(ns);
         }
-        while (ns.getStats().hacking < v.hacking_training.hack_limit) {
+        while (ns.getPlayer().hacking < v.hacking_training.hack_limit) {
             ns.universityCourse(city_info.uni, courseName);
             await ns.sleep(60000);
         }
@@ -59,7 +59,7 @@ export async function main(ns) {
             ns.travelToCity("Volhaven");
             city_info = city_resources(ns);
         }
-        while (ns.getStats().charisma < v.charisma_training.charisma_limit) {
+        while (ns.getPlayer().charisma < v.charisma_training.charisma_limit) {
             ns.universityCourse(city_info.uni, "Leadership");
             await ns.sleep(60000);
         }
@@ -76,7 +76,7 @@ export async function main(ns) {
             city_info = city_resources(ns);
         }
         for (let stat of stats) {
-            while (ns.getStats()[stat] < v.combat_training.workout_limits[stat]) {
+            while (ns.getPlayer()[stat] < v.combat_training.workout_limits[stat]) {
                 ns.gymWorkout(city_info.gym, stat); //v.combat_training.gym_name
                 await ns.sleep(30000);
             }
