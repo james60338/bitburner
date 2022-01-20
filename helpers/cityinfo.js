@@ -1,5 +1,5 @@
 export function city_resources(ns) {
-    let cityInfo = { "name": ns.getCharacterInformation().city, "gym": undefined, "uni": undefined };
+    let cityInfo = { "name": ns.getPlayer().city, "gym": undefined, "uni": undefined };
     switch (cityInfo.name) {
         case "Aevum":
             cityInfo.gym = "Crush Fitness Gym";
